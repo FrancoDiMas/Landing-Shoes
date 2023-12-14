@@ -224,4 +224,16 @@ html,body {
     .div_more_details_product {
         margin: 0 2rem 2rem 2rem;
     }
+
+    .div_products {
+        padding: 2rem 3rem;
+        background: transparent;
+    }
+
+}
+
+@media screen and (max-width: 450px){
+    .section_main_products {
+        padding: 8rem 2rem 5rem;
+    }
 }
