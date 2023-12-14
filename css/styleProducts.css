@@ -88,29 +88,69 @@ html,body {
     padding: 8rem 5rem 5rem; /* Arriba lados abajo, en el medio debería de ir %*/ 
 }
 
+.responsive_buttom_filter {
+    display: none;
+}
+
 .div_main_products {
     width: 100%;
     height: fit-content;
-    /* background: #eee; */
 }
 
 .div_main_products h1 {
     color: orangered;
     font-size: 2.3rem;
     text-shadow: 1px 1px 4px orangered;
+    letter-spacing: 1px;
+    display: contents;
+}
+
+.div_filter {
+    width: 100%;
+    margin-top: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.div_main_products .a_filters {
+    font-size: 1.5rem;
+    color: orangered;
+    text-shadow: 1px 1px 4px orangered;
+    border: solid .2rem orangered;
+    border-radius: 3rem;
+    padding: 1rem;
+    width: fit-content;
+    margin-left: 1rem;
+    box-shadow: 1px 1px 8px orangered;
+    text-align: center;
+    float: right;
 }
 
 .div_products {
     width: 100%;
     height: fit-content;
-    margin-top: 2rem;
     border-radius: .5rem;
     background: #eeeeee15;
-    padding: 3rem;
+    padding: 2rem 3rem;
     display: flex;
     flex-wrap: wrap; 
     justify-content: space-evenly;
     gap: 1rem;
+}
+
+.div_stock_actual {
+    width: 100%;
+    display: flex;
+    justify-content: left;
+    margin-top: 5rem;
+}
+
+.div_main_products .div_productos_stock {
+    font-size: 1.7rem;
+    color: #eee;
+    text-shadow: 1px 1px 4px #eee;
+    letter-spacing: 1px;
 }
 
 .div_products img {
@@ -120,6 +160,7 @@ html,body {
     min-height: 10rem;
     max-height: 20rem;
     height: 100%;
+    background: #000;
     padding: 1rem;
     border-radius: .5rem;
     border: solid .1rem #6a6a6a;
@@ -221,7 +262,7 @@ html,body {
         flex-direction: column-reverse;
         justify-content: center;
         align-items: center;
-        background: #131313;
+        background: #e2070713;
     }
 
     .div_more_details_product {
@@ -238,5 +279,31 @@ html,body {
 @media screen and (max-width: 450px){
     .section_main_products {
         padding: 8rem 2rem 5rem;
+    }
+}
+
+@media screen and (max-width: 350px){
+    .div_main_products .a_filters {
+        display: none;
+    }
+
+    .responsive_buttom_filter {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 3rem 2rem;
+    }
+
+    .responsive_buttom_filter .a_filters_responsive {
+        font-size: 1.5rem;
+        color: orangered;
+        text-shadow: 1px 1px 4px orangered;
+        border: solid .2rem orangered;
+        border-radius: 3rem;
+        padding: 1rem;
+        width: fit-content;
+        margin-left: 1rem;
+        box-shadow: 1px 1px 8px orangered;
+        text-align: center;
     }
 }
