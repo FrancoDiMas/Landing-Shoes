@@ -188,8 +188,41 @@ img {
     margin: 0 1rem;
 }
 
+/* Section welcome to web for PC sreen */
+.section_only_mobile {
+    display: 100%;
+    min-height: 100vh;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section_only_mobile h1 {
+    color: #eee;
+    font-size: 2rem;
+    text-align: center;
+    margin: 5rem;
+    padding: 3rem;
+    background: rgba(255, 68, 0, 0.13);
+    border: solid .1rem #383838;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 10px #eee;
+    box-shadow: 2px 2px 10px #383838;
+}
+
 
 /* BreakPoint */
+@media screen and (min-width: 730px) { /* Protegiendo el uniforme de la W*/
+    .section_main {
+        display: none;
+    }
+
+    .section_only_mobile {
+        display: flex;
+    }
+}
+
 @media screen and (max-width: 730px) {
     .section_main {
         padding: 7.5rem 2rem 5rem;

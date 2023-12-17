@@ -136,6 +136,17 @@ html,body {
     color: #eee;
 }
 
+/* Search Result Div */
+.div_search_result {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.div_search_result img {
+    height: 30vh;
+}
+
 /* Menu Desing */
 .header {
     position: fixed;
@@ -196,10 +207,38 @@ html,body {
     display: flex;
 }
 
+/* Section welcome to web for PC sreen */
+.section_only_mobile {
+    display: 100%;
+    min-height: 100vh;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section_only_mobile h1 {
+    color: #eee;
+    font-size: 2rem;
+    text-align: center;
+    margin: 5rem;
+    padding: 3rem;
+    background: rgba(255, 68, 0, 0.13);
+    border: solid .1rem #383838;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 10px #eee;
+    box-shadow: 2px 2px 10px #383838;
+}
+
+
 /* BreakPoint */
 @media screen and (min-width: 730px) { /* Protegiendo el uniforme de la W*/
-    .div_main_products {
+    .section_main_filter {
         display: none;
+    }
+
+    .section_only_mobile {
+        display: flex;
     }
 }
 
