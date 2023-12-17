@@ -1,0 +1,243 @@
+/* Import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Alkatra:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Edu+NSW+ACT+Foundation:wght@400;500;600;700&family=Lobster&family=Permanent+Marker&family=Playfair+Display&family=Poppins:wght@300;400;500;600;700;800;900&family=Rubik+Iso&family=Zeyada&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Open Sans', Courier, monospace;
+}
+
+html,body {
+    font-size: 62.5%;       /* Root Size */
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    height: 100%;
+}
+
+/* Filter Products Design */
+.section_main_filter {
+    width: 100%;
+    min-height: 100vh;
+    background: #000;
+    padding: 7rem 3rem;
+}
+
+.section_main_filter .tittle_filter {
+    color: orangered;
+    font-size: 2.3rem;
+    text-shadow: 1px 1px 4px orangered;
+    letter-spacing: 1px;
+}
+
+.div_filter_items {
+    width: 100%;
+    height: auto;
+    border: solid .1rem #525252;
+    margin: 2rem 0;
+    display: flex;
+    align-items: start;
+    justify-content: left;
+    background: url(../images/zapatoFondo.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.div_filter_items img {
+    /* width: 50vw; */
+    height: 40vh;
+    /* min-height: 80; */
+}
+
+.div_filter_items form {
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    padding: 4rem 1rem;
+    background: #000000a1;
+}
+
+.div_filter_items .gender {
+    color: #eee;
+    font-size: 1.5rem;
+    margin: 1rem;
+}
+
+.form_filter #gender {
+    margin: 1rem 0;
+}
+
+.div_filter_items .brand {
+    color: #eee;
+    font-size: 1.5rem;
+    margin: 1rem;
+}
+
+.div_filter_items .model {
+    color: #eee;
+    font-size: 1.5rem;
+    margin: 1rem;
+}
+
+.form_filter #model {
+    margin: 1rem 0;
+    margin-bottom: 0;
+}
+
+.form_filter .talla {
+    width: 2.5rem;
+    color: #eee;
+    margin: 1rem;
+    font-size: 1.5rem;
+}
+
+.form_filter #talla {
+    margin: 1rem;
+    width: 2.5rem;
+}
+
+.div_filter_items .color {
+    color: #eee;
+    margin: 1rem;
+    font-size: 1.5rem;
+}
+
+.div_filter_items .store {
+    color: #eee;
+    font-size: 1.5rem;
+    margin: 1rem;
+}
+
+.form_filter #store {
+    margin: 1rem 0;
+}
+
+.form_filter .search_button {
+    width: 15rem;
+    padding: .35rem;
+    color: #000;
+    font-size: 1.5rem;
+    margin: 4rem 0;
+    background: #eee;
+    border: solid .1rem #000;
+}
+
+.search_result {
+    width: 100%;
+    height: 30rem;
+    background: #5a5a5a28;
+}
+
+.search_result p {
+    font-size: 1.5rem;
+    color: #eee;
+}
+
+/* Menu Desing */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4.5rem;
+    background: orangered;
+    box-shadow: 1px 1px 100px 10px rgba(240, 91, 5, 0.34);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header h1 {
+    font-size: 3rem;
+    margin-left: 1rem;
+    text-shadow: 1px 3px 4px #000;
+    font-family: monospace;
+}
+
+.navbar {
+    height: 100%;
+}
+
+.navbar ul {
+    display: flex;
+    list-style-type: none;
+    height: 100%;
+}
+
+.navbar ul li {
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+}
+
+.navbar ul li:hover {
+    background-color: #00000027;
+}
+
+.navbar a {
+    margin: 0 1rem;
+    color: #000;
+    letter-spacing: .1rem;
+    font-weight: bolder;
+}
+
+/* Clase del ícono */
+.header .bx-menu, .bx-x {
+    font-size: 3rem;
+    margin: 0 .5rem;
+    display: none;
+}
+
+/* Clase para activar el menú */
+.header .navbar-active {
+    display: flex;
+}
+
+/* BreakPoint */
+@media screen and (min-width: 730px) { /* Protegiendo el uniforme de la W*/
+    .div_main_products {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 730px) {
+    .header .bx-menu {
+        display: block;
+    }
+
+    .navbar {
+        position: absolute;
+        height: auto;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        display: none;
+        justify-content: center;
+        border-top: solid .1rem #0000004b;
+        border-bottom: solid .1rem #0000004b;
+        background: orangered;
+        box-shadow: 1px 1px 100px 10px rgba(240, 91, 5, 0.34);
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar ul li {
+        margin: 2rem 0rem;
+    }
+
+    .navbar ul li:hover {
+        background: none;
+    }
+
+    .navbar a {
+        font-weight: bolder;
+        font-size: 2.3rem;
+    }
+
+}
