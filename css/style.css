@@ -224,6 +224,10 @@ img {
 }
 
 @media screen and (max-width: 730px) {
+    .section_only_mobile {
+        display: none;
+    }
+    
     .section_main {
         padding: 7.5rem 2rem 5rem;
     }

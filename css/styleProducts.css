@@ -241,6 +241,10 @@ html,body {
 }
 
 @media screen and (max-width: 730px) {
+    .section_only_mobile {
+        display: none;
+    }
+
     .header .bx-menu {
         display: block;
     }

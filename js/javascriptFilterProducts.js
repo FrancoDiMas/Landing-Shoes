@@ -47,22 +47,51 @@ genderSelect.addEventListener('change', updateImages);
 brandSelect.addEventListener('change', updateImages);
 
 // Function to update the displayed images
+// function updateImages() {
+//     // Get the selected values
+//     const selectedGender = genderSelect.value;
+//     const selectedBrand = brandSelect.value;
+//     // Generate the image URL based on the selected values
+//     const imageUrl = `../image_searchs/${selectedGender}_${selectedBrand}.png`;
+
+//     // Display the image
+//     const imageElement = document.getElementById('image');
+//     imageElement.src = imageUrl;
+
+//     // Clear the image container
+//     div_search_result.innerHTML = '';
+
+//     // Append the image to the container
+//     div_search_result.appendChild(imageElement);
+// }
+
 function updateImages() {
     // Get the selected values
     const selectedGender = genderSelect.value;
     const selectedBrand = brandSelect.value;
-    // Generate the image URL based on the selected values
-    const imageUrl = `../image_searchs/${selectedGender}_${selectedBrand}.png`;
-
-    // Display the image
-    const imageElement = document.getElementById('image');
-    imageElement.src = imageUrl;
 
     // Clear the image container
-    div_search_result.innerHTML = '';
+    imageContainer.innerHTML = '';
 
-    // Append the image to the container
-    div_search_result.appendChild(imageElement);
+    // Loop through all possible image combinations
+    for (let i = 0; i < genderSelect.options.length; i++) {
+        for (let j = 0; j < brandSelect.options.length; j++) {
+            // Get the current gender and brand values
+            const genderValue = genderSelect.options[i].value;
+            const brandValue = brandSelect.options[j].value;
+
+            // Check if the current combination matches the selected values
+            if (genderValue === selectedGender && brandValue === selectedBrand) {
+                // Generate the image URL based on the current combination
+                const imageUrl = `path/to/images/${genderValue}_${brandValue}.jpg`;
+
+                // Create an image element
+                const image = document.createElement('img');
+                image.src = imageUrl;
+
+                // Append the image to the container
+                imageContainer.appendChild(image);
+            }
+        }
+    }
 }
-
-
