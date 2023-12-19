@@ -39,7 +39,7 @@ var imagenes = [
     model: 'E23483J', url: '../image_searchs/1.png' },
 
     { genero: 'nino', marca: 'nike', modelo: 'casual', talla: ['38', '39', '42'], color: ['blanco', ' negro', ' azul'], tienda: 'Plaza Venezuela',
-    model: 'E23483J', url: '../image_searchs/3.png' },
+    model: 'E23483J', url: '/image_searchs/3.png' },
 
   ];
 
