@@ -26,7 +26,7 @@ const imageContainer = document.getElementById('div_search_result');
 
 var imagenes = [
 
-    { genero: 'mujer', marca: 'nike', modelo: 'deportivo', talla: ['38', '39', '40'], color: ['blanco', ' negro', ' azul'], tienda: 'Plaza Venezuela', 
+    { genero: ['mujer', 'hombre', 'unisex'], marca: 'nike', modelo: 'deportivo', talla: ['38', '39', '40'], color: ['blanco', ' negro', ' azul'], tienda: 'Plaza Venezuela', 
     model: 'A55723J', url: 'image_searchs/1.png' },
 
     { genero: 'mujer', marca: 'nike', modelo: 'deportivo 2', talla: ['38', '40'], color: ['blanco', ' negro', ' azul'], tienda: 'Plaza Venezuela',
@@ -36,7 +36,7 @@ var imagenes = [
     model: 'E23483J', url: 'image_searchs/3.png' },
 
     { genero: 'hombre', marca: 'nike', modelo: 'casual', talla: ['38', '39', '42'], color: ['blanco', ' negro', ' azul'], tienda: 'Plaza Venezuela',
-    model: 'E23483J', url: 'image_searchs/1.png' },
+    model: 'E23483J', url: 'image_searchs/4.png' },
 
     { genero: 'nino', marca: 'nike', modelo: 'casual', talla: ['38', '39', '42'], color: ['blanco', ' negro', ' azul'], tienda: 'Plaza Venezuela',
     model: 'E23483J', url: 'image_searchs/3.png' },
@@ -53,6 +53,21 @@ function updateImages() {
         imagen.genero === selectedGender && 
         imagen.marca === selectedBrand
     );
+
+    // Segunda opción:
+    // const imagenesCoincidentes = imagenes.filter(imagen => {
+    //     // Verifica si el género coincide
+    //     if (Array.isArray(imagen.marca)) {
+    //         if (imagen.marca.includes(selectedBrand)) {
+    //             return true;
+    //         }
+    //     } else {
+    //         if (imagen.marca === selectedBrand) {
+    //             return true;
+    //         }
+    //     }
+    //     return false;
+    // });
 
     // Creating all the display filter show
     imagenesCoincidentes.forEach(imagen => {
