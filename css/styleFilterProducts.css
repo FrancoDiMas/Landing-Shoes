@@ -138,14 +138,70 @@ html,body {
 
 /* Search Result Div */
 .div_search_result {
+    width: 100%;
+    height: fit-content;
+    border-radius: .5rem;
+    background: #eeeeee15;
+    padding: 2rem 3rem;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-wrap: wrap; 
+    justify-content: space-evenly;
+    gap: 1rem;
 }
 
-.div_search_result img {
-    height: 30vh;
+.div_product_image {
+    display: flex;
+    margin-top: 1rem;
+    margin-bottom: 5rem;
+    padding: 2rem;
+    border-radius: .5rem;
+    border: solid .1rem #eee;
 }
+
+.div_search_result .imgFilter {
+    min-width: 20rem;
+    max-width: 21rem;
+    width: 100%;
+    min-height: 10rem;
+    max-height: 20rem;
+    height: 100%;
+    background: #000;
+    padding: 1rem;
+    border-radius: .5rem;
+    border: solid .1rem #6a6a6a;
+}
+
+.div_more_details_product {
+    text-align: center;
+    padding: .5rem 1rem 0 1rem;
+    background: #272727;
+    margin: 0 0rem 0 4rem;
+    border: solid .1rem #eee;
+    border-radius: .5rem;
+    min-width: 22rem;
+}
+
+.div_more_details_product .h2_filter {
+    font-size: 2rem;
+    color: #eee;
+}
+
+.div_more_details_product .h2_filter::after {
+    content: "";
+    display: block;
+    border-bottom: solid .2rem #000;
+    box-shadow: 1px 1px 10px #000;
+}
+
+.div_more_details_product .p_filter {
+    text-align: left;
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    font-weight: bolder;
+    line-height: 3rem;
+    color: #ffffff;
+}
+
 
 /* Menu Desing */
 .header {

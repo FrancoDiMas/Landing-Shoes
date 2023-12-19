@@ -8,90 +8,92 @@ menuIcon.onclick = () => {
     navbar.classList.toggle('navbar-active');
 }
 
-// Filters configurations
-// document.getElementById("form_filter").addEventListener("submit", function(event) {
-//     event.preventDefault(); // Evita que el formulario se envíe
-  
-//     var gender = document.getElementById("gender").value;
-//     var brand = document.getElementById("brand").value;
-//     var model = document.getElementById("model").value;
-//     var talla = document.getElementById("talla").value; // tomar en cuenta esta para corregir, es un input
-//     var color = document.getElementById("color").value;
-//     var store = document.getElementById("store").value;
-  
-//     // Aquí puedes agregar tu lógica para buscar los modelos de zapatos que coincidan con las opciones seleccionadas
-//     // Puedes hacer una petición a una API, buscar en una base de datos, etc.
-  
-//     // Ejemplo: Mostrar los resultados en la página
-//     var resultsDiv = document.getElementById("div_search_result");
-//     resultsDiv.innerHTML = "<h2>Resultados de búsqueda</h2>" +
-//                            "<p>Género: " + gender + "</p>" +
-//                            "<p>Marca: " + brand + "</p>" +
-//                            "<p>Modelo: " + model + "</p>" +
-//                            "<p>Talla: " + talla + "</p>" +
-//                            "<p>Color: " + color + "</p>" +
-//                            "<p>Tienda: " + store + "</p>";
-                           
-//   });
+// Filter Products XX
 
+let documentFragment = document.createDocumentFragment();
 
-// Get the select elements
+// Point out elements of interest
 const genderSelect = document.getElementById('gender');
 const brandSelect = document.getElementById('brand');
-
-// Get the div element to display the images
-const imageContainer = document.getElementById('div_search_result');
 
 // Add event listeners to detect changes
 genderSelect.addEventListener('change', updateImages);
 brandSelect.addEventListener('change', updateImages);
 
-// Function to update the displayed images
-// function updateImages() {
-//     // Get the selected values
-//     const selectedGender = genderSelect.value;
-//     const selectedBrand = brandSelect.value;
-//     // Generate the image URL based on the selected values
-//     const imageUrl = `../image_searchs/${selectedGender}_${selectedBrand}.png`;
+// Get the div element to display the images
+const imageContainer = document.getElementById('div_search_result');
 
-//     // Display the image
-//     const imageElement = document.getElementById('image');
-//     imageElement.src = imageUrl;
 
-//     // Clear the image container
-//     div_search_result.innerHTML = '';
+var imagenes = [
 
-//     // Append the image to the container
-//     div_search_result.appendChild(imageElement);
-// }
+    { genero: 'mujer', marca: 'nike', modelo: 'deportivo', talla: ['38', '39', '40'], color: ['blanco', ' negro', ' azul'], tienda: 'Plaza Venezuela', 
+    model: 'A55723J', url: '../image_searchs/1.png' },
+
+    { genero: 'mujer', marca: 'nike', modelo: 'deportivo 2', talla: ['38', '40'], color: ['blanco', ' negro', ' azul'], tienda: 'Plaza Venezuela',
+    model: 'A25637J', url: '../image_searchs/2.png' },
+
+    { genero: 'unisex', marca: 'nike', modelo: 'casual', talla: ['38', '39', '42'], color: ['blanco', ' negro', ' azul'], tienda: 'Plaza Venezuela',
+    model: 'E23483J', url: '../image_searchs/3.png' },
+
+    { genero: 'hombre', marca: 'nike', modelo: 'casual', talla: ['38', '39', '42'], color: ['blanco', ' negro', ' azul'], tienda: 'Plaza Venezuela',
+    model: 'E23483J', url: '../image_searchs/1.png' },
+
+    { genero: 'nino', marca: 'nike', modelo: 'casual', talla: ['38', '39', '42'], color: ['blanco', ' negro', ' azul'], tienda: 'Plaza Venezuela',
+    model: 'E23483J', url: '../image_searchs/3.png' },
+
+  ];
 
 function updateImages() {
+
     // Get the selected values
-    const selectedGender = genderSelect.value;
-    const selectedBrand = brandSelect.value;
+    const selectedGender = genderSelect.value;  // Contiene el valor selecionado
+    const selectedBrand = brandSelect.value;    // Contiene el valor selecionado
 
-    // Clear the image container
-    imageContainer.innerHTML = '';
+    const imagenesCoincidentes = imagenes.filter(imagen => 
+        imagen.genero === selectedGender && 
+        imagen.marca === selectedBrand
+    );
 
-    // Loop through all possible image combinations
-    for (let i = 0; i < genderSelect.options.length; i++) {
-        for (let j = 0; j < brandSelect.options.length; j++) {
-            // Get the current gender and brand values
-            const genderValue = genderSelect.options[i].value;
-            const brandValue = brandSelect.options[j].value;
+    // Creating all the display filter show
+    imagenesCoincidentes.forEach(imagen => {
 
-            // Check if the current combination matches the selected values
-            if (genderValue === selectedGender && brandValue === selectedBrand) {
-                // Generate the image URL based on the current combination
-                const imageUrl = `path/to/images/${genderValue}_${brandValue}.jpg`;
+    const divProduct = document.createElement('div');
+    divProduct.classList.add('div_product_image');
 
-                // Create an image element
-                const image = document.createElement('img');
-                image.src = imageUrl;
+    const imgProduct = document.createElement('img');
+    imgProduct.classList.add('imgFilter');
+    imgProduct.src = imagen.url;
+    divProduct.appendChild(imgProduct);
 
-                // Append the image to the container
-                imageContainer.appendChild(image);
-            }
-        }
-    }
+    const divDetails = document.createElement('div');
+    divDetails.classList.add('div_more_details_product');
+    divProduct.appendChild(divDetails);
+
+    const h2Caracteristicas = document.createElement('h2');
+    h2Caracteristicas.classList.add('h2_filter');
+    h2Caracteristicas.textContent = 'Características';
+    divDetails.appendChild(h2Caracteristicas);
+
+    const pDetails = document.createElement('p');
+    pDetails.classList.add('p_filter');
+    let pContent = '';
+    pContent += `                      
+                Modelo: ${imagen.model}<br>
+                Talla: ${imagen.talla}<br>
+                Color: ${imagen.color}<br>
+                Tienda: ${imagen.tienda}
+                `
+    pDetails.innerHTML = pContent;
+    divDetails.appendChild(pDetails);
+
+    documentFragment.appendChild(divProduct);
+
+    // imageContainer.appendChild(divProduct);
+    });
+
+    imageContainer.innerHTML = ''; // Vaciar el contenido del div
+
+    imageContainer.appendChild(documentFragment); // Agregar documento fragmentado al DOM principal
+
 }
+
