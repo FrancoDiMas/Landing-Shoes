@@ -27,19 +27,19 @@ const imageContainer = document.getElementById('div_search_result');
 var imagenes = [
 
     { genero: 'mujer', marca: 'nike', modelo: 'deportivo', talla: ['38', '39', '40'], color: ['blanco', ' negro', ' azul'], tienda: 'Plaza Venezuela', 
-    model: 'A55723J', url: '../image_searchs/1.png' },
+    model: 'A55723J', url: 'image_searchs/1.png' },
 
     { genero: 'mujer', marca: 'nike', modelo: 'deportivo 2', talla: ['38', '40'], color: ['blanco', ' negro', ' azul'], tienda: 'Plaza Venezuela',
-    model: 'A25637J', url: '../image_searchs/2.png' },
+    model: 'A25637J', url: 'image_searchs/2.png' },
 
     { genero: 'unisex', marca: 'nike', modelo: 'casual', talla: ['38', '39', '42'], color: ['blanco', ' negro', ' azul'], tienda: 'Plaza Venezuela',
-    model: 'E23483J', url: '../image_searchs/3.png' },
+    model: 'E23483J', url: 'image_searchs/3.png' },
 
     { genero: 'hombre', marca: 'nike', modelo: 'casual', talla: ['38', '39', '42'], color: ['blanco', ' negro', ' azul'], tienda: 'Plaza Venezuela',
-    model: 'E23483J', url: '../image_searchs/1.png' },
+    model: 'E23483J', url: 'image_searchs/1.png' },
 
     { genero: 'nino', marca: 'nike', modelo: 'casual', talla: ['38', '39', '42'], color: ['blanco', ' negro', ' azul'], tienda: 'Plaza Venezuela',
-    model: 'E23483J', url: '/image_searchs/3.png' },
+    model: 'E23483J', url: 'image_searchs/3.png' },
 
   ];
 
