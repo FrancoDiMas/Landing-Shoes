@@ -19,10 +19,15 @@ const imageContainer = document.getElementById('div_search_result');
 // Point out elements of interest
 const genderSelect = document.getElementById('gender');
 const brandSelect = document.getElementById('brand');
+const sizeSelect = document.getElementById('size');
+const colorSelect = document.getElementById('color');
 
 // Add event listeners to detect changes and fire updateImages function
 genderSelect.addEventListener('change', updateImages);
 brandSelect.addEventListener('change', updateImages);
+sizeSelect.addEventListener('change', updateImages);
+colorSelect.addEventListener('change', updateImages);
+
 
 // Arrays List Images
 
@@ -30,18 +35,33 @@ brandSelect.addEventListener('change', updateImages);
 const shoesMan = [
     
     {
-        marca: ['nike', 'adidas', 'newBalance', 'timberland'], talla: ['38', '39', '40'], color: ['blanco', ' negro', ' azul'], tienda: 'Plaza Venezuela', 
+        marca: ['nike', 'adidas', 'newBalance', 'timberland'], talla: ['37', '39', '40'], color: ['blanco', 'negro', 'azul'], tienda: 'Plaza Venezuela', 
         model: 'A55723J', url: 'image_searchs/1.png'
     },
 
     {
-        talla: ['38', '39', '40'], color: ['blanco', ' negro', ' azul'], tienda: 'Plaza Venezuela', 
+        talla: ['38', '39', '40'], color: ['blanco', 'negro', 'azul'], tienda: 'Plaza Venezuela', 
         model: 'A55723J', url: 'image_searchs/2.png'
     },
 
     {
-        talla: ['38', '39', '40'], color: ['blanco', ' negro', ' azul'], tienda: 'Plaza Venezuela', 
+        marca: ['nike'], talla: ['38', '39', '40'], color: ['blanco', 'negro', 'azul'], tienda: 'Plaza Venezuela', 
         model: 'A55723J', url: 'image_searchs/3.png'
+    },
+
+    {
+        marca: ['nike'], talla: ['38', '39', '40'], color: ['blanco', 'negro', 'azul'], tienda: 'Plaza Venezuela', 
+        model: 'A55723J', url: 'image_searchs/9.png'
+    },
+
+    {
+        marca: ['nike'], talla: ['38', '39'], color: ['blanco', 'negro', 'azul'], tienda: 'Plaza Venezuela', 
+        model: 'A55723J', url: 'image_searchs/9.png'
+    },
+
+    {
+        marca: ['nike'], talla: ['38', '39'], color: ['blanco', 'negro', 'azul'], tienda: 'Plaza Venezuela', 
+        model: 'A55723J', url: 'image_searchs/9.png'
     },
 
 ]
@@ -50,27 +70,27 @@ const shoesMan = [
 const shoesWoman = [
     
     {
-        marca: ['nike', 'adidas', 'newBalance', 'timberland'], talla: ['38', '39', '40'], color: ['blanco', ' negro', ' azul'], tienda: 'Plaza Venezuela', 
+        marca: ['nike', 'adidas', 'newBalance', 'timberland'], talla: ['35', '36', '37', '38'], color: ['blanco', 'negro', 'azul'], tienda: 'Plaza Venezuela', 
         model: 'A55723J', url: 'image_searchs/4.png'
     },
 
     {
-        talla: ['38', '39', '40'], color: ['blanco', ' negro', ' azul'], tienda: 'Plaza Venezuela', 
+        marca: ['nike', 'adidas', 'newBalance', 'timberland'], talla: ['35', '39', '40'], color: ['blanco', 'negro', 'azul'], tienda: 'Plaza Venezuela', 
         model: 'A55723J', url: 'image_searchs/5.png'
     },
 
     {
-        talla: ['38', '39', '40'], color: ['blanco', ' negro', ' azul'], tienda: 'Plaza Venezuela', 
+        marca: ['x'], talla: ['38', '39', '40'], color: ['blanco', 'negro', 'azul'], tienda: 'Plaza Venezuela', 
         model: 'A55723J', url: 'image_searchs/6.png'
     },
 
     {
-        talla: ['38', '39', '40'], color: ['blanco', ' negro', ' azul'], tienda: 'Plaza Venezuela', 
+        marca:  ['nike', 'adidas'], talla: ['38', '36', '40'], color: ['blanco', 'negro', 'azul'], tienda: 'Plaza Venezuela', 
         model: 'A55723J', url: 'image_searchs/7.png'
     },
 
     {
-        talla: ['38', '39', '40'], color: ['blanco', ' negro', ' azul'], tienda: 'Plaza Venezuela', 
+        marca: ['x'], talla: ['38', '39', '40'], color: ['blanco', 'negro', 'azul'], tienda: 'Plaza Venezuela', 
         model: 'A55723J', url: 'image_searchs/8.png'
     },
 
@@ -89,7 +109,9 @@ const childrensShoes = [
 // Concat some arrays
 const todoShoes = shoesMan.concat(shoesWoman);
 
-// Functions
+
+
+// Functions 
 function updateImages(){
 
     // Get the selected values
@@ -98,7 +120,7 @@ function updateImages(){
     
     // If conditions to generate images
 
-    if (genderSelect.value !== '' && brandSelect.value === ''){
+    if (genderSelect.value !== '' && brandSelect.value === '' && sizeSelect.value === '' && colorSelect.value === ''){
 
         if (genderSelect.value === 'hombre') {
 
@@ -118,11 +140,12 @@ function updateImages(){
 
         }
 
-    } else if (genderSelect.value !== '' && brandSelect.value === 'nike'){ // Si gender es diferente a vacio y nike está pickeado entro abajo
+    // Bulding the Nike part
+    } else if (genderSelect.value !== '' && brandSelect.value === 'nike' && sizeSelect.value === '' && colorSelect.value === ''){ // Si gender es diferente a vacio y nike está pickeado entro abajo
 
         if (genderSelect.value === 'hombre' && brandSelect.value === 'nike') { // Si es hombre + nike
             
-            const hombreNike = shoesMan.filter(item => { // Declaro array constante, entro al array hombre, filtraré y guardaré en item
+            const hombreNike = shoesMan.filter(item => { // Declaro array constante, apunto al array que usaré, filtraré y guardaré en item
                 if (Array.isArray(item.marca)) { // Verifica si marca es un array anidado y retorna un booleano
                     if (item.marca.includes(brandSelect.value)){ // Verifica si en el array marca, está incluido el brandselect.value o no
                         return true; // Si es true mostrará si es false no lo hará
@@ -135,7 +158,63 @@ function updateImages(){
 
         } else if (genderSelect.value === 'mujer' && brandSelect.value === 'nike'){
 
-            console.log('Waiting to be programmed');
+            const mujerNike = shoesWoman.filter(item => {
+                if (Array.isArray(item.marca)) {
+                    if (item.marca.includes(brandSelect.value)){
+                        return true;
+                    }
+                }
+            });
+
+            takeAndGenerateImg(mujerNike);
+
+        } else if (genderSelect.value === 'nino' && brandSelect.value === 'nike' || genderSelect.value === 'nina' && brandSelect.value === 'nike'){
+
+            takeAndGenerateImg(childrensShoes);
+
+        } else if (genderSelect.value === 'unisex' && brandSelect.value === 'nike' || genderSelect.value === 'todo' && brandSelect.value === 'nike'){
+
+            const todoCatalogo = todoShoes.filter(item => {
+                if (Array.isArray(item.marca)){
+                    if (item.marca.includes(brandSelect.value)){
+                        return true;
+                    }
+                }
+            });
+
+            takeAndGenerateImg(todoCatalogo);
+
+        }
+    // Bulding the model/size part. Example.
+    } else if (genderSelect.value !== '' && brandSelect.value === 'nike' && sizeSelect.value !== '' && colorSelect.value === ''){
+
+        if (genderSelect.value === 'hombre' && brandSelect.value === 'nike' && sizeSelect.value !== '') {// Aquí voy a organizar una busqueda que filtre por marca + talla.
+
+            // Let's do our magic here
+            const sizeLooking = shoesMan.filter(item => {
+                if (Array.isArray(item.marca)){
+                    if (item.marca.includes(brandSelect.value) && item.talla.includes(sizeSelect.value)){
+                        return true;
+                    }
+                }
+            });
+            console.log(sizeLooking)
+            takeAndGenerateImg(sizeLooking);
+        }
+    } else if (genderSelect.value !== '' && brandSelect.value === 'nike' && sizeSelect.value !== '' && colorSelect.value !== ''){
+
+        if (genderSelect.value === 'mujer') { 
+            const testSearch = shoesWoman.filter(item => { // Todo este array constante lo hice por prueba para ver si puedo filter por 3 opciones, y verifiqué, estoy en lo cierto, se puede hacer así que ya terminé la prueba.
+                if (Array.isArray(item.marca && item.talla && item.color)){
+                    if (item.marca.includes(brandSelect.value) && item.talla.includes(sizeSelect.value) && item.color.includes(colorSelect.value)){
+                        return true;
+                    }
+                } else {
+                    console.log('Alguno de los array verificados, no contiene un array anidado')
+                }
+            });
+
+            takeAndGenerateImg(testSearch);
 
         }
 
