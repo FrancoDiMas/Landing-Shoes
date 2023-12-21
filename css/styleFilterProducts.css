@@ -340,3 +340,28 @@ html,body {
     }
 
 }
+
+@media screen and (max-width: 650px) {
+    .div_product_image {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: center;
+        background: #e2070713;
+    }
+
+    .div_more_details_product {
+        margin: 0 2rem 2rem 2rem;
+    }
+
+    .div_search_result {
+        padding: 2rem 3rem;
+        background: transparent;
+    }
+}
+
+@media screen and (max-width: 450px){
+    .section_main_filter {
+        padding: 8rem 2rem 5rem;
+    }
+}
