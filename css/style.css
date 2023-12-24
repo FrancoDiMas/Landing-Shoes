@@ -94,6 +94,7 @@ y luego si hay muchos más objetos este seguirá creciendo */
 /* Comienza el primer div, div_main */
 .div_main {
     display: flex;
+
 }
 
 .div_for_p {
@@ -212,6 +213,7 @@ img {
 }
 
 
+
 /* BreakPoint */
 @media screen and (min-width: 730px) { /* Protegiendo el uniforme de la W*/
     .section_main {
@@ -267,6 +269,17 @@ img {
         font-size: 2.3rem;
     }
 
+        
+    /* Class to manipulate divs at the beggining */
+    .div_appair {
+        display: block;
+    }
+
+    .div_appair_flex {
+        display: flex;
+    }
+
+
 }
 
 @media screen and (max-width: 700px){
@@ -289,16 +302,22 @@ img {
         display: none;
         opacity: 0;
     }
-
-    /* Clase para manipular los Divs del inicio */
+        
+    /* Class to manipulate divs at the beggining */
     .div_appair {
         display: block;
     }
+
+    .div_appair_flex {
+        display: flex;
+    }
+
+
 }
 
 @media screen and (max-width: 510px){
     .div_to_products {
-        display: flex;
+        display: none;
         flex-direction: column;
         align-items: center;
     }
@@ -309,4 +328,14 @@ img {
         text-align: center;
         display: block;
     }
+    
+    /* Class to manipulate divs at the beggining */
+    .div_appair {
+        display: block;
+    }
+
+    .div_appair_flex {
+        display: flex;
+    }
+
 }
