@@ -215,7 +215,7 @@ img {
 
 
 /* BreakPoint */
-@media screen and (min-width: 730px) { /* Protegiendo el uniforme de la W*/
+@media screen and (min-width: 701px) { /* Protegiendo el uniforme de la W*/
     .section_main {
         display: none;
     }
@@ -225,7 +225,7 @@ img {
     }
 }
 
-@media screen and (max-width: 730px) {
+/* @media screen and (max-width: 730px) {
     .section_only_mobile {
         display: none;
     }
@@ -233,6 +233,8 @@ img {
     .section_main {
         padding: 7.5rem 2rem 5rem;
     }
+
+
 
     .header .bx-menu {
         display: block;
@@ -270,7 +272,8 @@ img {
     }
 
         
-    /* Class to manipulate divs at the beggining */
+
+
     .div_appair {
         display: block;
     }
@@ -280,18 +283,22 @@ img {
     }
 
 
-}
+} */
 
 @media screen and (max-width: 700px){
+    .section_only_mobile {
+        display: none;
+    }
+    
     .section_main {
         align-items: center;
+        padding: 7.5rem 2rem 5rem;
     }
 
     .div_main {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        /* gap: 6.5rem 0; */
     }
 
     .div_for_p {
@@ -301,6 +308,48 @@ img {
     .div_for_p, .div_circle, .div_to_products {
         display: none;
         opacity: 0;
+    }
+
+    .div_to_products {
+        justify-content: center;
+    }
+
+
+    /* Menu Responsive Desing */
+
+    .header .bx-menu {
+        display: block;
+    }
+
+    .navbar {
+        position: absolute;
+        height: auto;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        display: none;
+        justify-content: center;
+        border-top: solid .1rem #0000004b;
+        background: orangered;
+        box-shadow: 1px 1px 100px 10px rgba(240, 91, 5, 0.34);
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar ul li {
+        margin: 2rem 0rem;
+    }
+
+    .navbar ul li:hover {
+        background: none;
+    }
+
+    .navbar a {
+        font-weight: bolder;
+        font-size: 2.3rem;
     }
         
     /* Class to manipulate divs at the beggining */
